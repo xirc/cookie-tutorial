@@ -13,7 +13,7 @@ def index():
 @app.route("/get-cookie/", methods=["GET"])
 def get_cookie():
     response = make_response("Here, take some cookie!")
-    response.set_cookie(key="id", value="3db4adj3d", path="/")
+    response.set_cookie(key="id", value="3db4adj3d", path="/", httponly=True)
     return response
 
 
