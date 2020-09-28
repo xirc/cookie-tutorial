@@ -1,6 +1,8 @@
 from flask import Flask, make_response, request, render_template, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app=app, supports_credentials=True)
 
 
 @app.route('/', methods=["GET"])
@@ -11,7 +13,7 @@ def index():
 @app.route("/get-cookie/", methods=["GET"])
 def get_cookie():
     response = make_response("Here, take some cookie!")
-    response.set_cookie(key="id", value="3db4adj3d")
+    response.set_cookie(key="id", value="3db4adj3d", path="/")
     return response
 
 
